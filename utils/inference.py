@@ -92,6 +92,10 @@ def main(config):
     print("Connecting to Network Tables")
     ntinst = NetworkTablesInstance.getDefault()
     ntinst.startClientTeam(team)
+    if (len(sys.argv) > 1) :
+      print ("__________________________Setting server IP to " + sys.argv[1])
+      ntinst.setServer(sys.argv[1])
+
 
     """Format of these entries found in WPILib documentation."""
     nb_objects_entry = ntinst.getTable("ML").getEntry("nb_objects")
